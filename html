@@ -7,173 +7,7 @@
   <meta name="keywords" content="workout, fitness, library, avatar, carousel, video tutorials">
   <meta name="author" content="Your Name">
   <title>Workout Library with Avatar Carousel</title>
-  <style>
-    /* Global Styles */
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #111;
-      color: #fff;
-      line-height: 1.6;
-    }
-
-    header {
-      text-align: center;
-      padding: 50px 20px;
-      background-color: #333;
-      color: #00bfae;
-    }
-
-    header h1 {
-      font-size: 2.5em;
-    }
-
-    /* Avatar Carousel Section */
-    .body-goal {
-      text-align: center;
-      background-color: #00bfae;
-      padding: 40px 20px;
-      color: #fff;
-    }
-
-    .body-goal h2 {
-      font-size: 2.2em;
-      margin-bottom: 20px;
-    }
-
-    .carousel-container {
-      position: relative;
-      max-width: 300px;
-      margin: 20px auto;
-    }
-
-    .carousel-container img {
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-      display: block;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      border: none;
-      color: #fff;
-      font-size: 1.5em;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 50%;
-      z-index: 10;
-      transition: background-color 0.3s ease;
-    }
-
-    .carousel-btn:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    .carousel-btn.left {
-      left: -40px;
-    }
-
-    .carousel-btn.right {
-      right: -40px;
-    }
-
-    .customize-btn {
-      margin-top: 20px;
-      padding: 12px 24px;
-      background-color: #333;
-      color: white;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .customize-btn:hover {
-      background-color: #008e81;
-    }
-
-    /* Workout Library */
-    .workout-library {
-      padding: 30px;
-      text-align: center;
-      background-color: #222;
-    }
-
-    .workout-library h2 {
-      font-size: 2.2em;
-      margin-bottom: 20px;
-      color: #00bfae;
-    }
-
-    .exercise-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .exercise-item {
-      background-color: #333;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .exercise-item:hover {
-      transform: scale(1.05);
-    }
-
-    .exercise-item img {
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
-    }
-
-    .exercise-item p {
-      margin-top: 10px;
-      font-size: 1.2em;
-      color: #00bfae;
-    }
-
-    /* Modal Styles */
-    .video-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .video-modal iframe {
-      width: 80%;
-      height: 80%;
-      border-radius: 10px;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2em;
-      color: white;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -195,22 +29,12 @@
   <section class="workout-library">
     <h2>Workouts</h2>
     <div class="exercise-grid">
+      <!-- Workout Items -->
       <div class="exercise-item" onclick="openVideo('https://www.youtube.com/embed/8U5ehaD27AI')">
         <img src="https://gymvisual.com/img/p/1/5/1/9/5/15195.gif" alt="Back Workout">
         <p>Back</p>
       </div>
-      <div class="exercise-item" onclick="openVideo('https://www.youtube.com/embed/4dVGggPA65c')">
-        <img src="https://gymvisual.com/img/p/3/3/1/3/9/33139.gif" alt="Chest Workout">
-        <p>Chest</p>
-      </div>
-      <div class="exercise-item" onclick="openVideo('https://www.youtube.com/embed/tkBtxfBY4P8')">
-        <img src="https://gymvisual.com/img/p/2/4/9/6/3/24963.gif" alt="Shoulder Workout">
-        <p>Shoulders</p>
-      </div>
-      <div class="exercise-item" onclick="openVideo('https://www.youtube.com/embed/p5jQ61s-pCU')">
-        <img src="https://gymvisual.com/img/p/1/4/4/6/6/14466.gif" alt="Squats Workout">
-        <p>Squats</p>
-      </div>
+      <!-- Add other workout items here -->
     </div>
   </section>
 
@@ -220,37 +44,6 @@
     <iframe id="videoFrame" src="" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
   </div>
 
-  <script>
-    const avatars = [
-      "https://via.placeholder.com/300x600?text=Lean",
-      "https://via.placeholder.com/300x600?text=Athletic",
-      "https://via.placeholder.com/300x600?text=Muscular",
-      "https://via.placeholder.com/300x600?text=Bulky"
-    ];
-    let currentAvatarIndex = 0;
-
-    function changeAvatar(direction) {
-      currentAvatarIndex = (currentAvatarIndex + direction + avatars.length) % avatars.length;
-      document.getElementById("avatarDisplay").src = avatars[currentAvatarIndex];
-    }
-
-    function customizeAvatar() {
-      alert("Customizing the selected avatar...");
-    }
-
-    function openVideo(videoUrl) {
-      const modal = document.getElementById("videoModal");
-      const iframe = document.getElementById("videoFrame");
-      iframe.src = videoUrl;
-      modal.style.display = "flex";
-    }
-
-    function closeModal() {
-      const modal = document.getElementById("videoModal");
-      const iframe = document.getElementById("videoFrame");
-      iframe.src = "";
-      modal.style.display = "none";
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
